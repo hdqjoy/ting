@@ -44,7 +44,7 @@
 			<div class="row cl">
 				<div class="formControls col-xs-8 col-xs-offset-3">
 					<input id="verifyCode" name="verifyCode" type="text" placeholder="验证码" class="input-text size-L" style="width:150px;">
-					<span >{:captcha_img()}</span>
+					<span ><#:captcha_img()#></span>
 				</div>
 			</div>
 			<div class="row cl">
@@ -105,7 +105,7 @@
 			$(form).ajaxSubmit({
 				type: 'post',
 				dataType: "json",
-				url: "{:url('login/login')}",
+				url: "<#:url('login/login')#>",
 				success: function(result){
 					if(result.status == 0){
 						dialog.error(result.msg,2000);
@@ -116,7 +116,7 @@
 					}
 				},
 				error: function(XmlHttpRequest, textStatus, errorThrown){
-					layer.msg('error!',{icon:1,time:1000});
+					layer.msg('error!',{icon:5,time:1000});
 				}
 			});
 		}

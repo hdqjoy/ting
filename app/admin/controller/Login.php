@@ -42,6 +42,8 @@ class Login extends Controller
             return ajaxReturn(0,'密码不正确，请重新输入密码!');
         }else if($result == 3){
             return ajaxReturn(0,'不存在该用户，请使用正确账号登录!');
+        }else if($result == 4){
+            return ajaxReturn(0,'登陆尝试次数过于频繁，请10分钟后再登陆！');
         }
     }
 

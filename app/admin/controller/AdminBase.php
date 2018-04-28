@@ -16,7 +16,7 @@ class AdminBase extends Base
 {
 
     public $id;
-    public $name;
+    public $admin_name;
     public $account;
 
     public function initialize()

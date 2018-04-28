@@ -1,15 +1,15 @@
 <!--_meta 作为公共模版分离出去-->
 <!--引入meta-->
-{include file="public/meta" /}
+<#include file="public/meta" /#>
 <!--/meta 作为公共模版分离出去-->
 
 <!-- 引入其他需要的css样式-->
-{block name="style"}
+<#block name="style"#>
 <!--<link rel="stylesheet" type="text/css" href="" />-->
-{/block}
+<#/block#>
 <!-- 引入其他需要的css样式-->
 
-<title>{$title ?:''} Ting Here! v1.0</title>
+<title><#$title ?:''#> Ting Here! v1.0</title>
 <meta name="keywords" content="Ting here! 一切陪你左右，伴你随行！">
 <meta name="description" content="这里有'听你所闻，见你所目，玩你所乐'的一切，你想听到的、看到的，你想玩乐的，在这里！">
 </head>
@@ -17,15 +17,15 @@
 
 <!--_header 作为公共模版分离出去-->
 <!--引入header-->
-{include file="public/header" /}
+<#include file="public/header" /#>
 <!--/_header 作为公共模版分离出去-->
 
 <!--_menu 作为公共模版分离出去-->
 <!--引入menu-->
-{include file="public/menu" /}
+<#include file="public/menu" /#>
 <!--/_menu 作为公共模版分离出去-->
 
-{block name='content'}
+<#block name='content'#>
 <!-- 主内容区域 开始 -->
 <section class="Hui-article-box">
     <nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="/" class="maincolor">首页</a> <span class="c-999 en">&gt;</span><span class="c-666">空白页</span></nav>
@@ -36,14 +36,14 @@
     </div>
 </section>
 <!-- 主内容区域 结束 -->
-{/block}
+<#/block#>
 
 <!--_footer 作为公共模版分离出去-->
 <!--引入footer-->
-{include file="public/footer" /}
+<#include file="public/footer" /#>
 <!--/_footer /作为公共模版分离出去-->
 
-{block name='script'}
+<#block name='script'#>
 <!-- 引入其他需要的js文件-->
 <!--<script type="text/javascript" src=""></script>-->
 <!-- 引入其他需要的js文件-->
@@ -55,7 +55,7 @@
     })();
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
-{/block}
+<#/block#>
 
 </body>
 </html>
