@@ -42,7 +42,7 @@ DROP TABLE IF EXISTS `ti_login_log`;
 CREATE TABLE `ti_login_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `account` varchar(30) NOT NULL DEFAULT '' COMMENT '登录账号',
-  `ipaddr` int(10) NOT NULL DEFAULT '0' COMMENT '登录ip',
+  `ipaddr` char(11) NOT NULL DEFAULT '0' COMMENT '登录ip',
   `site` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0管理员系统登录，1应用系统登录',
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '登录状态，0登录失败，包括用户名、密码、任何尝试登陆，均记录，1登录成功',
   `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '创建时间',
