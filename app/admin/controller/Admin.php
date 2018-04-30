@@ -25,7 +25,7 @@ class Admin extends AdminBase
         $db = new AdminModel();
         $list = $db->where('state','>','-1')
                     ->where('create_time','>=',strtotime($sdate))
-                    ->where('create_time','<', strtotime($edate))
+                    ->where('create_time','<', strtotime("$edate +1days"))
                     ->whereLike('account',"%$account%")
                     ->paginate(config('list_rows'),false,['query'=>request()->param()]);
         $total = $list->total();

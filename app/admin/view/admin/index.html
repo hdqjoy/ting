@@ -137,7 +137,10 @@
                 success: function(result){
                     if(result.status == 1){
                         $(obj).parents("tr").remove();
-                        layer.msg(result.msg,{icon:1,time:1000});
+                        layer.msg(result.msg,{icon:1,time:1000},function () {
+                            window.location.reload();
+                        });
+
                     }else if(result.status == 0){
                         layer.msg(result.msg,{icon:5,time:1000});
                     }
