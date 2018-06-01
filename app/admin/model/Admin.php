@@ -17,7 +17,7 @@ class Admin extends Model
 
     public function getRoleAttr($value)
     {
-        $status = [0=>'超级管理员',1=>'管理员'];
+        $status = [1=>'超级管理员组',2=>'管理员管理组',3=>'用户管理组'];
         return $status[$value];
     }
 

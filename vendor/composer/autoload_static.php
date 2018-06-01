@@ -16,6 +16,10 @@ class ComposerStaticInit763ef286c8a1228fef4e4ef766da0300
             'think\\composer\\' => 15,
             'think\\captcha\\' => 14,
         ),
+        'p' => 
+        array (
+            'php4world\\' => 10,
+        ),
         'a' => 
         array (
             'app\\' => 4,
@@ -30,6 +34,10 @@ class ComposerStaticInit763ef286c8a1228fef4e4ef766da0300
         'think\\captcha\\' => 
         array (
             0 => __DIR__ . '/..' . '/topthink/think-captcha/src',
+        ),
+        'php4world\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php4world/auth/src',
         ),
         'app\\' => 
         array (

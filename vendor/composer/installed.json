@@ -1,5 +1,40 @@
 [
     {
+        "name": "php4world/auth",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php4world/auth.git",
+            "reference": "1e148bccec388a270a8f88d0ab3d4854607fea73"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/php4world/auth/1e148bccec388a270a8f88d0ab3d4854607fea73.zip",
+            "reference": "1e148bccec388a270a8f88d0ab3d4854607fea73",
+            "shasum": ""
+        },
+        "time": "2018-01-07T11:36:15+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "php4world\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "php4world",
+                "email": "76422937@qq.com"
+            }
+        ],
+        "description": "ThinkPHP5.1 Auth Class."
+    },
+    {
         "name": "topthink/framework",
         "version": "v5.1.5",
         "version_normalized": "5.1.5.0",

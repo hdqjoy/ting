@@ -4,8 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1d464fd4450ddff628008b74ec6ae9d",
+    "content-hash": "5120eedb72fa43fdd35da477a95d8ceb",
     "packages": [
+        {
+            "name": "php4world/auth",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php4world/auth.git",
+                "reference": "1e148bccec388a270a8f88d0ab3d4854607fea73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/php4world/auth/1e148bccec388a270a8f88d0ab3d4854607fea73.zip",
+                "reference": "1e148bccec388a270a8f88d0ab3d4854607fea73",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "php4world\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "php4world",
+                    "email": "76422937@qq.com"
+                }
+            ],
+            "description": "ThinkPHP5.1 Auth Class.",
+            "time": "2018-01-07T11:36:15+00:00"
+        },
         {
             "name": "topthink/framework",
             "version": "v5.1.5",

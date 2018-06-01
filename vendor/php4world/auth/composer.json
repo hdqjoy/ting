@@ -1,0 +1,16 @@
+{
+    "name": "php4world/auth",
+    "description": "ThinkPHP5.1 Auth Class.",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "php4world",
+            "email": "76422937@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "php4world\\": "src/"
+        }
+    }
+}

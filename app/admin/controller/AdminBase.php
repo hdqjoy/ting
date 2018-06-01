@@ -10,6 +10,9 @@ namespace app\admin\controller;
 
 use app\common\controller\Base;
 use think\facade\Session;
+use think\Request;
+
+use php4world\Auth;
 
 
 class AdminBase extends Base
@@ -29,8 +32,79 @@ class AdminBase extends Base
             $this->redirect(url('Login/index'));
         }else{
 
+            // 做菜单访问控制
+
+            $menu = $this->getMenuList(2);
+//            dump($menu);
+
+            $nav = "";
+            foreach ($menu as $k=>$v){
+                $nav .= '<dl id="menu-'.$v['name'].'">'.PHP_EOL;
+                $nav .= '<dt><i class="Hui-iconfont">&#xe62d;</i>'.$v['title'].'<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>'.PHP_EOL;
+                $nav .= '<dd>'.PHP_EOL;
+
+                if(!empty($v['child'])){
+                    $nav .= '<ul>'.PHP_EOL;
+                    foreach ($v['child'] as $key=>$value){
+                        $nav .= '<li><a href=<#:url("'.$value['name'].'")#> title='.$value['title'].'>'.$value['title'].'</a></li>'.PHP_EOL;
+                    }
+                    $nav .= '</ul>'.PHP_EOL;
+                }
+                $nav .= '</dd>'.PHP_EOL;
+                $nav .= '</dl>'.PHP_EOL;
+            }
+            
+            
+            $this->assign('nav',$nav);
+            
         }
     }
-    
+
+    // 在基类里做全局的菜单控制
+
+    // 返回所有菜单无限分类
+    function unlimitedForLayer ($cate, $name = 'child', $pid = 0) {
+        $arr = array();
+        foreach ($cate as $v) {
+            if ($v['pid'] == $pid) {
+                $v[$name] = $this->unlimitedForLayer($cate, $name, $v['id']);
+                $arr[] = $v;
+            }
+        }
+        return $arr;
+    }
+
+    // 首先将所有菜单取出来
+    function getAllMenu(){
+
+        $cate = db('auth_rule')->where('ismenu = 1')->order('id asc')->select();     // 读取用作菜单显示的
+        $menu = $this->unlimitedForLayer($cate);
+
+        return $menu;
+    }
+
+    // 根据角色权限过滤菜单
+    function getMenuList($auth_id){
+
+        $menu_list = $this->getAllMenu();   // 获取所有菜单
+
+        if($auth_id!='1'){   // 超级管理员加载所有菜单
+            $auth = new Auth();
+
+            $authList = $auth->getAuthList($auth_id,1);    // 获取用户需要验证的所有有效规则列表
+
+            $role_right = \think\Db::table('ti_auth_rule')->where('name','in',$authList)->column('id');
+
+            foreach($menu_list as $k=>$v){
+                foreach ($v['child'] as $kk=>$vv){
+                    if(!in_array($vv['id'], $role_right)){    // 判断数组是否在菜单表里面
+                        unset($menu_list[$k]['child'][$kk]);  // 过滤菜单
+                    }
+                }
+            }
+        }
+        return $menu_list;
+    }
+
 
 }
